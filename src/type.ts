@@ -22,12 +22,13 @@ export type LabelPropsType = {
 export type PieChartPropsType = {
   hasLegend: boolean;
   data: PieChartData[];
-  colors: PieChartColorsType[];
+  colors?: PieChartColorsType[];
   label?: { title: string; description: string };
   innerRadius: number;
   outerRadius: number;
   minHeight: number | string | object;
   labelProps?: LabelPropsType;
+  nonGradColors?: string[];
 };
 
 export type LineChartDataType = {
