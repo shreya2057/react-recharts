@@ -33,11 +33,11 @@ export const PieChartWithGap = ({
               <linearGradient id={`linear-gradient${index}`}>
                 <stop
                   offset="0%"
-                  stopColor={colors[index % colors.length].start}
+                  stopColor={colors && colors[index % colors.length].start}
                 />
                 <stop
                   offset="100%"
-                  stopColor={colors[index % colors.length].end}
+                  stopColor={colors && colors[index % colors.length].end}
                 />
               </linearGradient>
             ))}

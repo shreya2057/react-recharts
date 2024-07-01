@@ -2,6 +2,7 @@ import { Box, Flex } from "@chakra-ui/react";
 import { LineCharts } from "./components/LineCharts";
 import { PieChartWithGap } from "./components/PieChartWithGap";
 import { BarCharts } from "./components/BarCharts";
+import { PieCharts } from "./components/PieCharts";
 
 const colors = [
   { start: "#72C8FF", end: "#1E85C7" },
@@ -120,11 +121,13 @@ function App() {
       >
         <Box
           display={"flex"}
-          flex={"70%"}
+          flex={"65%"}
           justifyContent={"center"}
           background={"white"}
           borderRadius={"14px"}
           p={6}
+          width={"100%"}
+          height={"450px"}
         >
           <BarCharts
             data={data}
@@ -139,21 +142,16 @@ function App() {
           justifyContent={"center"}
           background={"white"}
           borderRadius={"14px"}
-          flex={"30%"}
+          flex={"35%"}
           p={{ base: 3, sm: 6 }}
         >
-          <PieChartWithGap
+          <PieCharts
+            nonGradColors={["#E37125", "#F4961F", "#E5EEF7"]}
             hasLegend
             data={data}
-            colors={colors}
-            innerRadius={80}
-            outerRadius={120}
+            innerRadius={50}
+            outerRadius={80}
             minHeight={96}
-            labelProps={{
-              label: { title: "20", description: "Student Applied" },
-              diameter: "130px",
-              topPosition: { base: "23%", sm: "23%" },
-            }}
           />
         </Box>
       </Flex>
