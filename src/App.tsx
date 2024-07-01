@@ -1,6 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { LineCharts } from "./components/LineCharts";
 import { PieChartWithGap } from "./components/PieChartWithGap";
+import { BarCharts } from "./components/BarCharts";
 
 const colors = [
   { start: "#72C8FF", end: "#1E85C7" },
@@ -63,9 +64,10 @@ function App() {
     <Flex
       maxW={"100%"}
       flexDirection={"column"}
-      h={"100dvh"}
+      h={"100%"}
       background={"#F2F6FA"}
       p={4}
+      gap={6}
     >
       <Flex
         display={"flex"}
@@ -85,6 +87,51 @@ function App() {
             data={lineData}
             colors={["#E37125", "#1E85C7"]}
             dataKey={["scholarshipRequest", "admissionRequest"]}
+          />
+        </Box>
+        <Box
+          display={"flex"}
+          justifyContent={"center"}
+          background={"white"}
+          borderRadius={"14px"}
+          flex={"30%"}
+          p={{ base: 3, sm: 6 }}
+        >
+          <PieChartWithGap
+            hasLegend
+            data={data}
+            colors={colors}
+            innerRadius={80}
+            outerRadius={120}
+            minHeight={96}
+            labelProps={{
+              label: { title: "20", description: "Student Applied" },
+              diameter: "130px",
+              topPosition: { base: "23%", sm: "23%" },
+            }}
+          />
+        </Box>
+      </Flex>
+      <Flex
+        display={"flex"}
+        direction={{ base: "column", xl: "row" }}
+        width={"100%"}
+        gap={6}
+      >
+        <Box
+          display={"flex"}
+          flex={"70%"}
+          justifyContent={"center"}
+          background={"white"}
+          borderRadius={"14px"}
+          p={6}
+        >
+          <BarCharts
+            data={data}
+            domain={[0, 500]}
+            barSize={48}
+            color={Array.from({ length: data.length }, () => "#E5EEF7")}
+            yAxisTickCount={6}
           />
         </Box>
         <Box
